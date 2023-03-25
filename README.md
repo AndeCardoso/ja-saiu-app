@@ -32,9 +32,6 @@ Styled-components
 React-Native-Paper
 ```
 
-```sh
-React JS
-```
 
 ## Install
 
