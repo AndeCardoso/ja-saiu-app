@@ -32,6 +32,9 @@ Styled-components
 React-Native-Paper
 ```
 
+```sh
+Axios
+```
 
 ## Install
 
