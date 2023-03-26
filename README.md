@@ -32,9 +32,6 @@ Styled-components
 React-Native-Paper
 ```
 
-```sh
-React JS
-```
 
 ## Install
 
@@ -51,7 +48,3 @@ yarn start
 ## Authors
 
 👤 <a href="https://www.linkedin.com/in/anderson-cardoso-781b56102/">**Anderson Cardoso**</a>
-
-## Back-End do projeto
-
-<a href="https://github.com/hebertdelima13/agenda-fcamara-api/tree/dev">Github do projeto</a>
