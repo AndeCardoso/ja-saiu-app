@@ -1,4 +1,4 @@
-<h1 align="center">:rocket: That's my React Native boilerplate project :rocket:</h1>
+<h1 align="center">:japanese_goblin: That's the Já saiu? a react-native app to notify when a new episode of your favorite anime be launched :japanese_goblin:</h1>
 <p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   <a href="#" target="_blank">
@@ -9,31 +9,13 @@
 ## Libraries
 
 ```sh
-Expo
+Typescript, Expo, React-Native-Paper, Styled-components, Axios
 ```
 
-```sh
-Typescript
-```
+## Tools
 
 ```sh
-Eslint
-```
-
-```sh
-Prittier
-```
-
-```sh
-Styled-components
-```
-
-```sh
-React-Native-Paper
-```
-
-```sh
-Axios
+Eslint, Prittier
 ```
 
 ## Install
@@ -50,4 +32,4 @@ yarn start
 
 ## Authors
 
-👤 <a href="https://www.linkedin.com/in/anderson-cardoso-781b56102/">**Anderson Cardoso**</a>
+👤 <a href="https://www.linkedin.com/in/andersoncardoso-dev/">**Anderson Cardoso**</a>

@@ -16,11 +16,3 @@ export const Title = styled(Text)`
   font-weight: 700;
   margin-bottom: 30px;
 `;
-
-export const Auth = styled(Text)`
-  font-size: 12px;
-  color: ${colors.WHITE};
-  font-style: italic;
-  align-self: flex-start;
-  margin-left: 15px;
-`;
