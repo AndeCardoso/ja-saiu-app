@@ -3,18 +3,20 @@ module.exports = function (api) {
   return {
     presets: ['babel-preset-expo'],
     env: {
-      production: {
+      development: {
         plugins: ['react-native-paper/babel',['module-resolver', {
           root: ['./src'],
           extensions: ['.ts', '.tsx', '.js', '.json'],
           alias: {
-            '@components': './src/app/components',
-            '@globals': './src/app/globals',
-            '@assets': './src/app/assets',
-            '@utils': './src/app/utils',
             '@pages': './src/app/pages',
-            '@http': './src/infra/http',
+            '@utils': './src/app/utils',
+            '@routes': './src/app/routes',
+            '@global': './src/app/global',
+            '@assets': './src/app/assets',
+            '@components': './src/app/components',
+            '@providers': './src/app/providers',
             '@services': './src/infra/services',
+            '@http': './src/infra/http',
             '@model': './src/model',
             '@tools': './src/tools',
           },

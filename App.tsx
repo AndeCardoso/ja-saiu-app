@@ -1,11 +1,25 @@
-import { Provider as PaperProvider } from 'react-native-paper';
-import { Main } from './src/app/pages/main';
-import { theme } from './src/app/global/theme/theme';
+import { Providers } from '@providers/index';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native';
+import { AppRoutes } from '@routes/index.routes';
+import { useRef } from 'react';
 
 export default function App() {
+  const routeNameRef = useRef<any>();
+  const navigationRef = useNavigationContainerRef();
+
   return (
-    <PaperProvider theme={theme}>
-      <Main />
-    </PaperProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <NavigationContainer
+        ref={navigationRef}
+        onReady={() => {
+          routeNameRef.current = navigationRef.getCurrentRoute()?.name;
+        }}
+      >
+        <Providers>
+          <AppRoutes />
+        </Providers>
+      </NavigationContainer>
+    </GestureHandlerRootView>
   );
 }
