@@ -1,10 +1,11 @@
 import React from 'react';
-import { ContainerView, Title } from './styles';
+import { Title } from './styles';
+import { Layout } from '@components/layout';
 
 export const Main = () => {
   return (
-    <ContainerView>
+    <Layout>
       <Title>Já saiu?</Title>
-    </ContainerView>
+    </Layout>
   );
 };
