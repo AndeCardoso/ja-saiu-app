@@ -15,8 +15,8 @@ export interface IRegister {
 }
 
 const enum statusResponse {
-  'ok' = 0,
-  'userName' = 1,
-  'password' = 2,
-  'error' = 3,
+  'ok' = 200,
+  'unauthorized' = 401,
+  'length-required' = 411,
+  'server-error' = 500,
 }

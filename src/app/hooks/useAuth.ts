@@ -1,30 +1,29 @@
 import { IAuth, IAuthResponse } from '@model/auth/login';
-import { mockAuth } from 'app/mocks/auth';
+import { mockAPIAuth } from 'app/mocks/auth';
+import { ToastAndroid } from 'react-native';
 
 export const useAuth = () => {
-  const handleLogin = async (data: IAuth): Promise<IAuthResponse> => {
-    if (data.userName !== mockAuth.userName) {
-      return {
-        status: 1,
-        message: 'Nome de usuário inválido',
-      };
-    }
-    if (data.password !== mockAuth.password) {
-      return {
-        status: 2,
-        message: 'Senha inválida',
-      };
-    }
-    if (data.userName === mockAuth.userName && data.password === mockAuth.password) {
-      return {
-        status: 0,
-        message: '',
-      };
-    } else {
-      return {
-        status: 3,
-        message: 'Algo errado aconteceu',
-      };
+  const handleLogin = async (data: IAuth) => {
+    try {
+      const { status, message } = await mockAPIAuth(data);
+      switch (status) {
+        case 200:
+          return true;
+        case 411:
+          ToastAndroid.show(message, ToastAndroid.TOP);
+          return false;
+        case 401:
+          ToastAndroid.show(message, ToastAndroid.TOP);
+          return false;
+        case 500:
+          ToastAndroid.show(message, ToastAndroid.TOP);
+          return false;
+        default:
+          return false;
+      }
+    } catch (error) {
+      ToastAndroid.show('Erro de conexão', ToastAndroid.TOP);
+      return false;
     }
   };
 
