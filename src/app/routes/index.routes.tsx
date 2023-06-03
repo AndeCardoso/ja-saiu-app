@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
 import { Platform, StatusBar } from 'react-native';
 import { Navigators } from './screens';
 import { SignedOffNavigator } from './signedOff.routes';
@@ -18,6 +18,7 @@ export const AppRoutes = () => {
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         }}
       >
         <Stack.Screen name={Navigators.SIGNED_OFF_NAVIGATOR} component={SignedOffNavigator} />
