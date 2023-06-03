@@ -1,53 +1,33 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import { ButtonsWrapper, Container, InputsWrapper, StyledButton, StyledImage, StyledRow } from './styles';
+import { Input } from '@components/base/input';
+import { Button } from '@components/base/button';
 
-import { LoginLayout } from './layout';
-import { useAuth } from 'app/hooks/useAuth';
-import { useNavigation } from '@react-navigation/native';
-import { Navigators, SignedInScreens } from '@routes/screens';
-
-export interface FormInputs {
-  userName: string;
-  password: string;
-}
+import LogoImage from '@assets/png/logo.png';
+import { useLoginScreen } from './useLoginScreen';
 
 export const LoginPage = () => {
-  const { handleLogin } = useAuth();
-  const { navigate } = useNavigation<any>();
-  const { control, handleSubmit, getValues } = useForm<FormInputs>({
-    defaultValues: {
-      userName: '',
-      password: '',
-    },
-  });
-
-  const onSubmit = async () => {
-    try {
-      const response = await handleLogin(getValues());
-      switch (response.status) {
-        case 0:
-          navigate(Navigators.SIGNED_IN_NAVIGATOR, { screen: SignedInScreens.HOME });
-          break;
-        case 1:
-          console.log(response.message);
-          break;
-        case 2:
-          console.log(response.message);
-          break;
-        case 3:
-          console.log(response.message);
-          break;
-        default:
-          break;
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleWithoutAuth = () => {
-    navigate(Navigators.SIGNED_IN_NAVIGATOR, { screen: SignedInScreens.HOME });
-  };
-
-  return <LoginLayout control={control} handleWithoutAuth={handleWithoutAuth} handleSubmit={handleSubmit(onSubmit)} />;
+  const { control, handleSubmit, handleRegister, handleWithoutAuth, onSubmit } = useLoginScreen();
+  return (
+    <Container verticalCenter>
+      <StyledImage source={LogoImage} resizeMode="contain" />
+      <InputsWrapper>
+        <Input name="userName" control={control} label="Usuário" placeholder="Informe seu nome de usuário" />
+        <Input name="password" control={control} label="Senha" placeholder="Informe a senha" type="password" />
+      </InputsWrapper>
+      <ButtonsWrapper>
+        <Button mode="contained" fullWidth onPress={handleSubmit(onSubmit)}>
+          Entrar
+        </Button>
+        <StyledRow>
+          <StyledButton mode="text" onPress={handleWithoutAuth}>
+            Entrar sem logar
+          </StyledButton>
+          <StyledButton mode="outlined" onPress={handleRegister}>
+            Fazer cadastro
+          </StyledButton>
+        </StyledRow>
+      </ButtonsWrapper>
+    </Container>
+  );
 };
