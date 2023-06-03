@@ -4,13 +4,15 @@ import { useTheme } from 'react-native-paper';
 
 interface ITextProps {
   children: ReactNode;
+  fontSize?: number;
   bold?: number;
+  contrast?: boolean;
 }
 
-export const Text = ({ children, bold, ...rest }: ITextProps) => {
+export const Text = ({ children, fontSize, bold, contrast, ...rest }: ITextProps) => {
   const theme = useTheme();
   return (
-    <StyledText theme={theme} {...rest}>
+    <StyledText theme={theme} fontSize={fontSize} bold={bold} contrast={contrast} {...rest}>
       {children}
     </StyledText>
   );

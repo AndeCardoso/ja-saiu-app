@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 
 import { useAuth } from 'app/hooks/useAuth';
 import { useNavigation } from '@react-navigation/native';
-import { Navigators, SignedInScreens } from '@routes/screens';
+import { Navigators, SignedInScreens, SignedOffScreens } from '@routes/screens';
 
 export interface FormInputs {
   userName: string;
@@ -33,7 +33,7 @@ export const useLoginScreen = () => {
   };
 
   const handleRegister = () => {
-    navigate(Navigators.SIGNED_IN_NAVIGATOR, { screen: SignedInScreens.HOME });
+    navigate(Navigators.SIGNED_OFF_NAVIGATOR, { screen: SignedOffScreens.REGISTER });
   };
 
   return { control, handleRegister, handleWithoutAuth, handleSubmit, onSubmit };

@@ -5,6 +5,7 @@ export enum Navigators {
 
 export enum SignedOffScreens {
   LOGIN = 'Login',
+  REGISTER = 'Register',
 }
 
 export enum SignedInScreens {

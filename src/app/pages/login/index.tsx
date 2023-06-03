@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonsWrapper, Container, InputsWrapper, StyledButton, StyledImage, StyledRow } from './styles';
+import { ButtonsWrapper, Container, InputsWrapper, StyledButton, StyledLogo, StyledRow } from './styles';
 import { Input } from '@components/base/input';
 import { Button } from '@components/base/button';
 
@@ -10,7 +10,7 @@ export const LoginPage = () => {
   const { control, handleSubmit, handleRegister, handleWithoutAuth, onSubmit } = useLoginScreen();
   return (
     <Container verticalCenter>
-      <StyledImage source={LogoImage} resizeMode="contain" />
+      <StyledLogo source={LogoImage} resizeMode="contain" />
       <InputsWrapper>
         <Input name="userName" control={control} label="Usuário" placeholder="Informe seu nome de usuário" />
         <Input name="password" control={control} label="Senha" placeholder="Informe a senha" type="password" />

@@ -1,4 +1,5 @@
-import { IAuth, IAuthResponse } from '@model/auth/login';
+import { IAuth, IRegister } from '@model/auth/login';
+import { SuperConsole } from '@tools/indentedConsole';
 import { mockAPIAuth } from 'app/mocks/auth';
 import { ToastAndroid } from 'react-native';
 
@@ -27,5 +28,9 @@ export const useAuth = () => {
     }
   };
 
-  return { handleLogin };
+  const handleUserRegister = async (data: IRegister) => {
+    const { userName, password, passwordConfirm } = data;
+    SuperConsole({ userName, password, passwordConfirm });
+  };
+  return { handleLogin, handleUserRegister };
 };

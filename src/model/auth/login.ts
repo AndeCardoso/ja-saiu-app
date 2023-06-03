@@ -3,15 +3,15 @@ export interface IAuth {
   password: string;
 }
 
-export interface IAuthResponse {
-  status: statusResponse;
-  message: string;
-}
-
 export interface IRegister {
   userName: string;
   password: string;
   passwordConfirm: string;
+}
+
+export interface IAuthResponse {
+  status: statusResponse;
+  message: string;
 }
 
 const enum statusResponse {
