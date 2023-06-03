@@ -5,21 +5,23 @@ export const ScrollViewContainer = styled.KeyboardAvoidingView`
   flex: 1;
 `;
 
-export const Container = styled.View<{ theme: Theme; verticalCenter?: boolean }>`
+export const Container = styled.View<{ theme: Theme }>`
   flex: 1;
   background-color: ${({ theme }) => theme.colors.background};
 `;
 
-export const ScrollContainer = styled.ScrollView<{ theme: Theme }>`
+export const ScrollContainer = styled.ScrollView<{ theme: Theme; verticalCenter?: boolean }>`
   flex: 1;
   align-items: center;
+  justify-content: ${({ verticalCenter }) => (verticalCenter ? 'center' : 'flex-start')};
   background-color: ${({ theme }) => theme.colors.background};
   padding: 16px;
 `;
 
-export const StaticContainer = styled.View<{ theme: Theme }>`
+export const StaticContainer = styled.View<{ theme: Theme; verticalCenter?: boolean }>`
   flex: 1;
   align-items: center;
+  justify-content: ${({ verticalCenter }) => (verticalCenter ? 'center' : 'flex-start')};
   background-color: ${({ theme }) => theme.colors.background};
   padding: 16px;
 `;

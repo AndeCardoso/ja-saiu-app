@@ -21,12 +21,16 @@ export const Layout = ({ verticalCenter, scrollView, children, header, footer }:
   const theme = useTheme();
   return (
     <ScrollViewContainer>
-      <Container verticalCenter={verticalCenter} theme={theme}>
+      <Container theme={theme}>
         {header && <HeaderContainer theme={theme}>{header}</HeaderContainer>}
         {scrollView ? (
-          <ScrollContainer theme={theme}>{children}</ScrollContainer>
+          <ScrollContainer verticalCenter={verticalCenter} theme={theme}>
+            {children}
+          </ScrollContainer>
         ) : (
-          <StaticContainer theme={theme}>{children}</StaticContainer>
+          <StaticContainer verticalCenter={verticalCenter} theme={theme}>
+            {children}
+          </StaticContainer>
         )}
 
         {footer && <FooterContainer theme={theme}>{footer}</FooterContainer>}

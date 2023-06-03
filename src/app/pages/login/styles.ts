@@ -22,10 +22,9 @@ export const InputsWrapper = styled(View)`
 `;
 
 export const ButtonsWrapper = styled(View)`
-  width: 95%;
-  padding: 16px 0;
+  width: 100%;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
 `;
 
 export const StyledRow = styled(Row)`
@@ -33,5 +32,5 @@ export const StyledRow = styled(Row)`
 `;
 
 export const StyledButton = styled(Button)`
-  width: 50%;
+  width: 48%;
 `;
