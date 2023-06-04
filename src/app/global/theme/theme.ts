@@ -12,6 +12,7 @@ export const paperTheme = {
     background: colors.TERTIARY,
     outline: colors.PRIMARY,
 
+    WARNING: colors.WARNING,
     WHITE: colors.WHITE,
     BLACK: colors.BLACK,
     BUTTON_PRIMARY: colors.PRIMARY,
