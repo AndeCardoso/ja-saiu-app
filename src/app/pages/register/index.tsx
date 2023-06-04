@@ -10,6 +10,7 @@ export const RegisterPage = () => {
   const { control, handleGoBack, handleSubmit, onSubmit } = useRegisterScreen();
   return (
     <Container
+      showGoBackButton
       header={
         <Text fontSize={24} bold={700} contrast>
           Cadastro
