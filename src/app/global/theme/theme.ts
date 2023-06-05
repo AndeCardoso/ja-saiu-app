@@ -11,10 +11,15 @@ export const paperTheme = {
     tertiary: colors.TERTIARY,
     background: colors.TERTIARY,
     outline: colors.PRIMARY,
+    backdrop: colors.OVERLAY,
 
     WARNING: colors.WARNING,
+
     WHITE: colors.WHITE,
     BLACK: colors.BLACK,
+
+    MODAL_BACKGROUND: colors.TERTIARY,
+    MODAL_BACKGROUND_FOOTER: colors.SECONDARY,
     BUTTON_PRIMARY: colors.PRIMARY,
     BUTTON_OUTLINE_BLUE: colors.PRIMARY,
   },
