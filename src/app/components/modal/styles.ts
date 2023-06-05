@@ -10,5 +10,6 @@ export const Container = styled.View<{ theme: Theme }>`
   background-color: ${({ theme }) => theme.colors.MODAL_BACKGROUND};
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  padding: 16px;
+  padding: 16px 16px 32px 16px;
+  gap: 16px;
 `;

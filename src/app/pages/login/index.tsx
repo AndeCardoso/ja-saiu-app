@@ -55,7 +55,7 @@ export const LoginPage = () => {
         header={'Você tem certeza?'}
       >
         <Text fontSize={16}>
-          {`Caso você decida seguir sem se identificar, todas as suas ações (favoritos, buscas, etc) serão perdidas ao encerrar o app. \n Também não será possivel notificar quando um novo episodio for lançado.`}
+          {`Caso você decida seguir sem se identificar, todas as suas ações (favoritos, buscas, etc) serão perdidas ao encerrar o app.\n\nTambém não será possível notificar quando um novo episódio for lançado!`}
         </Text>
       </Modal>
     </Container>
