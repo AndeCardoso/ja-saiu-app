@@ -32,5 +32,6 @@ export const useAuth = () => {
     const { userName, password, passwordConfirm } = data;
     SuperConsole({ userName, password, passwordConfirm });
   };
+
   return { handleLogin, handleUserRegister };
 };
