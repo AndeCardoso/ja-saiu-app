@@ -5,9 +5,10 @@ import { Text } from '@components/base/text';
 
 interface IHeaderModalProps {
   children: ReactNode;
+  onClose: () => void;
 }
 
-export const HeaderModal = ({ children }: IHeaderModalProps) => {
+export const HeaderModal = ({ children, onClose }: IHeaderModalProps) => {
   const theme = useTheme();
 
   return (
@@ -15,7 +16,7 @@ export const HeaderModal = ({ children }: IHeaderModalProps) => {
       <Text bold={700} fontSize={24}>
         {children}
       </Text>
-      <IconButton icon={'close'} iconColor={theme.colors.primary} />
+      <IconButton icon={'close'} iconColor={theme.colors.primary} onPress={onClose} />
     </Header>
   );
 };

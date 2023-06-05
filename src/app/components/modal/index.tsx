@@ -20,7 +20,7 @@ export const Modal = ({ children, visible, onClose, header, firstButton, secondB
     <Portal theme={theme}>
       <ModalContainer visible={visible} onDismiss={onClose} {...rest}>
         <Container theme={theme}>
-          {header && <HeaderModal>{header}</HeaderModal>}
+          {header && <HeaderModal onClose={onClose}>{header}</HeaderModal>}
           {children}
         </Container>
         {(firstButton || secondButton) && <FooterModal firstButton={firstButton} secondButton={secondButton} />}
