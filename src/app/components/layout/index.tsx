@@ -1,15 +1,8 @@
 import { ReactElement, ReactNode } from 'react';
-import {
-  Container,
-  FooterContainer,
-  HeaderContainer,
-  ScrollContainer,
-  ScrollViewContainer,
-  StaticContainer,
-} from './styles';
+import { Container, FooterContainer, ScrollContainer, ScrollViewContainer, StaticContainer } from './styles';
 import { useTheme } from 'react-native-paper';
-import { Header } from './Header';
 import { useNavigation } from '@react-navigation/native';
+import { Header } from './Header';
 
 interface ILayoutProps {
   verticalCenter?: boolean;
@@ -26,6 +19,7 @@ export const Layout = ({ verticalCenter, scrollView, children, header, footer, s
   const handleGoBack = () => {
     canGoBack() && goBack();
   };
+
   return (
     <ScrollViewContainer>
       <Container theme={theme}>
