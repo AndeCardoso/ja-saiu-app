@@ -4,6 +4,7 @@ export enum HttpStatusCode {
   ok = 200,
   notModified = 304,
   badRequest = 400,
+  unauthorized = 401,
   notFound = 404,
   methodNotAllowed = 405,
   tooManyRequest = 429,

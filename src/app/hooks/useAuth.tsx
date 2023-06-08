@@ -1,29 +1,31 @@
 import { IAuth, IRegister } from '@model/auth/login';
+import { HttpStatusCode } from '@model/http/httpClient';
 import { SuperConsole } from '@tools/indentedConsole';
+import { toastConfig } from 'app/constants/ToastConfigs';
 import { mockAPIAuth } from 'app/mocks/auth';
-import { ToastAndroid } from 'react-native';
+import Toast from 'react-native-root-toast';
 
 export const useAuth = () => {
   const handleLogin = async (data: IAuth) => {
     try {
       const { status, message } = await mockAPIAuth(data);
       switch (status) {
-        case 200:
+        case HttpStatusCode.ok:
           return true;
-        case 411:
-          ToastAndroid.show(message, ToastAndroid.TOP);
+        case HttpStatusCode.notModified:
+          Toast.show(message, toastConfig.error);
           return false;
-        case 401:
-          ToastAndroid.show(message, ToastAndroid.TOP);
+        case HttpStatusCode.unauthorized:
+          Toast.show(message, toastConfig.alert);
           return false;
-        case 500:
-          ToastAndroid.show(message, ToastAndroid.TOP);
+        case HttpStatusCode.internalServerError:
+          Toast.show(message, toastConfig.error);
           return false;
         default:
           return false;
       }
     } catch (error) {
-      ToastAndroid.show('Erro de conexão', ToastAndroid.TOP);
+      Toast.show('Erro de conexão', toastConfig.error);
       return false;
     }
   };

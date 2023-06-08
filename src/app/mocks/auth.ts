@@ -9,7 +9,7 @@ export const mockAPIAuth = async (data: IAuth) => {
   const { password, userName } = data;
   if (password.length === 0 || userName.length === 0) {
     return {
-      status: 411,
+      status: 304,
       message: 'Preencha todos os campos',
     };
   }
