@@ -22,7 +22,7 @@ export const ButtonModal = ({ children, onPress, fullwidth, side }: IButtonModal
 
   return (
     <StyledButtonModal theme={theme} fullwidth={fullwidth} side={side} onPress={onPress}>
-      <Text fontSize={20} bold={700} uppercase contrast>
+      <Text fontSize={16} bold={700} uppercase contrast>
         {children}
       </Text>
     </StyledButtonModal>
