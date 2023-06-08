@@ -2,7 +2,7 @@ import { ReactElement, ReactNode } from 'react';
 import { Container, FooterContainer, ScrollContainer, ScrollViewContainer, StaticContainer } from './styles';
 import { useTheme } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
-import { Header } from './Header';
+import { Header } from './header';
 
 interface ILayoutProps {
   verticalCenter?: boolean;
