@@ -1,11 +1,11 @@
 import React from 'react';
-import { Title } from './styles';
 import { Layout } from '@components/layout';
+import { HomeLayout } from './home';
 
 export const Main = () => {
   return (
     <Layout>
-      <Title>Já saiu?</Title>
+      <HomeLayout></HomeLayout>
     </Layout>
   );
 };

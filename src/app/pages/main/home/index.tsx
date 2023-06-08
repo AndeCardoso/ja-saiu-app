@@ -1,11 +1,11 @@
 import React from 'react';
 import { Layout } from '@components/layout';
-import { Text } from '@components/base/text';
+import { HeaderHome } from './header';
 
 export const HomeLayout = () => {
   return (
-    <Layout verticalCenter>
-      <Text>HomeLayout</Text>
+    <Layout header={<HeaderHome></HeaderHome>} scrollView>
+      <></>
     </Layout>
   );
 };
