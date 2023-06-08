@@ -1,12 +1,12 @@
 import React from 'react';
-import { ButtonsWrapper, Container, InputsWrapper, StyledButton, StyledLogo, StyledRow } from './styles';
+import { ButtonsWrapper, Container, InputsWrapper, StyledButton, StyledRow } from './styles';
 
-import LogoImage from '@assets/png/logo.png';
 import { useLoginScreen } from './useLoginScreen';
 import { Modal } from '@components/modal';
 import { Text } from '@components/base/text';
 import { Input } from '@components/base/input';
 import { Button } from '@components/base/button';
+import { StyledLogo } from '@components/base/logo';
 
 export const LoginPage = () => {
   const {
@@ -38,7 +38,7 @@ export const LoginPage = () => {
         </ButtonsWrapper>
       }
     >
-      <StyledLogo source={LogoImage} resizeMode="contain" />
+      <StyledLogo size={256} />
       <InputsWrapper>
         <Input name="userName" control={control} label="Usuário" placeholder="Informe seu nome de usuário" />
         <Input name="password" control={control} label="Senha" placeholder="Informe a senha" type="password" />

@@ -5,14 +5,7 @@ import { Button } from 'react-native-paper';
 import { ThemeProp } from 'react-native-paper/lib/typescript/src/types';
 import styled from 'styled-components/native';
 
-const LOGO_SIZE = '256px';
-
 export const Container = styled(Layout)``;
-
-export const StyledLogo = styled(Image)`
-  width: ${LOGO_SIZE};
-  height: ${LOGO_SIZE};
-`;
 
 export const InputsWrapper = styled(View)`
   width: 100%;
