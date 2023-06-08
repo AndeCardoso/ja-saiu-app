@@ -1,12 +1,12 @@
 import React from 'react';
 import { ButtonsWrapper, Container, InputsWrapper, StyledButton, StyledLogo, StyledRow } from './styles';
-import { Input } from '@components/base/input';
-import { Button } from '@components/base/button';
 
 import LogoImage from '@assets/png/logo.png';
 import { useLoginScreen } from './useLoginScreen';
 import { Modal } from '@components/modal';
 import { Text } from '@components/base/text';
+import { Input } from '@components/base/input';
+import { Button } from '@components/base/button';
 
 export const LoginPage = () => {
   const {
