@@ -1,10 +1,10 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Navigators, SignedInScreens } from '@routes/screens';
+import { SignedInScreens } from '@routes/screens';
 import { useTheme } from 'react-native-paper';
 import { HomeLayout } from './home';
 import { Icon } from '@components/base/icon';
 import { DiscoverLayout } from './discover';
-import { FavoritesLayout } from './Favorites';
+import { FavoritesLayout } from './favorites';
 
 export type TabParams = {
   home: undefined;
