@@ -11,9 +11,18 @@ interface ILayoutProps {
   header?: ReactElement;
   footer?: ReactElement;
   showGoBackButton?: boolean;
+  hasInputSearchHeader?: boolean;
 }
 
-export const Layout = ({ verticalCenter, scrollView, children, header, footer, showGoBackButton }: ILayoutProps) => {
+export const Layout = ({
+  verticalCenter,
+  scrollView,
+  children,
+  header,
+  footer,
+  showGoBackButton,
+  hasInputSearchHeader,
+}: ILayoutProps) => {
   const { canGoBack, goBack } = useNavigation();
   const theme = useTheme();
   const handleGoBack = () => {
@@ -24,7 +33,7 @@ export const Layout = ({ verticalCenter, scrollView, children, header, footer, s
     <ScrollViewContainer>
       <Container theme={theme}>
         {header && (
-          <Header goBack={handleGoBack} showGoBackButton={showGoBackButton}>
+          <Header goBack={handleGoBack} showGoBackButton={showGoBackButton} hasInputSearch={hasInputSearchHeader}>
             {header}
           </Header>
         )}

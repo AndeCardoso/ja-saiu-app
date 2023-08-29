@@ -6,7 +6,7 @@ import { useDiscoverScreen } from './useDiscoverScreen';
 export const DiscoverLayout = () => {
   const { control, handleSubmit } = useDiscoverScreen();
   return (
-    <Layout header={<HeaderDiscover control={control}></HeaderDiscover>} scrollView>
+    <Layout scrollView header={<HeaderDiscover control={control}></HeaderDiscover>} hasInputSearchHeader>
       <></>
     </Layout>
   );
