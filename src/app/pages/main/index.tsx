@@ -5,7 +5,7 @@ import { HomeLayout } from './home';
 export const Main = () => {
   return (
     <Layout>
-      <HomeLayout></HomeLayout>
+      <HomeLayout />
     </Layout>
   );
 };

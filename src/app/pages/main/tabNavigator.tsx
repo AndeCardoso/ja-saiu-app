@@ -5,6 +5,9 @@ import { HomeLayout } from './home';
 import { Icon } from '@components/base/icon';
 import { DiscoverLayout } from './discover';
 import { FavoritesLayout } from './favorites';
+import { Platform } from 'react-native';
+
+const isIOS = Platform.OS === 'ios';
 
 export type TabParams = {
   home: undefined;
@@ -45,6 +48,7 @@ export const TabNavigator = () => {
         },
         tabBarStyle: {
           backgroundColor: theme.colors.background,
+          marginBottom: isIOS ? -16 : 0,
         },
       })}
     >

@@ -6,7 +6,7 @@ import { SignedOffNavigator } from './signedOff.routes';
 import { useTheme } from 'react-native-paper';
 import { SignedInNavigator } from './signedIn.routes';
 
-const ios = Platform.OS === 'ios';
+const isIOS = Platform.OS === 'ios';
 
 const Stack = createStackNavigator();
 
@@ -14,7 +14,7 @@ export const AppRoutes = () => {
   const { colors } = useTheme();
   return (
     <>
-      <StatusBar backgroundColor={colors.primary} barStyle={ios ? 'light-content' : 'dark-content'} />
+      <StatusBar backgroundColor={colors.primary} barStyle={isIOS ? 'light-content' : 'dark-content'} />
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
