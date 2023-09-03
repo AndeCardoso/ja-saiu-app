@@ -40,7 +40,7 @@ export const LoginPage = () => {
     >
       <StyledLogo size={256} />
       <InputsWrapper>
-        <Input name="userName" control={control} label="Usuário" placeholder="Informe seu nome de usuário" />
+        <Input name="loginUser" control={control} label="Usuário" placeholder="Informe seu nome de usuário" />
         <Input name="password" control={control} label="Senha" placeholder="Informe a senha" type="password" />
       </InputsWrapper>
 

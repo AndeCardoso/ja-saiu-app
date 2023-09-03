@@ -21,6 +21,7 @@ export const httpRequest = async (data: IHttpRequest): Promise<HttpResponse | un
 
     return {
       data: response.data,
+      statusCode: response.statusCode,
       pagination: {
         last_visible_page: response.pagination?.last_visible_page,
         has_next_page: response.pagination?.has_next_page,

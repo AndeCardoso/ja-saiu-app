@@ -1,10 +1,10 @@
 export interface IAuth {
-  userName: string;
+  loginUser: string;
   password: string;
 }
 
 export interface IRegister {
-  userName: string;
+  loginUser: string;
   password: string;
   passwordConfirm: string;
 }

@@ -1,15 +1,18 @@
 import { IAuth, IRegister } from '@model/auth/login';
 import { HttpStatusCode } from '@model/http/httpClient';
-import { SuperConsole } from '@tools/indentedConsole';
-import { toastConfig } from 'app/constants/ToastConfigs';
-import { mockAPIAuth } from 'app/mocks/auth';
+import AuthService from '@services/auth';
+import { toastConfig } from 'app/constants/ToastConfig';
 import Toast from 'react-native-root-toast';
 
 export const useAuth = () => {
-  const handleLogin = async (data: IAuth) => {
+  const authService = new AuthService();
+  const message = 'Erro inesperado';
+
+  const handleLogin = async (loginData: IAuth) => {
     try {
-      const { status, message } = await mockAPIAuth(data);
-      switch (status) {
+      const { statusCode } = await authService.authenticate(loginData);
+
+      switch (statusCode) {
         case HttpStatusCode.ok:
           return true;
         case HttpStatusCode.notModified:
@@ -30,9 +33,28 @@ export const useAuth = () => {
     }
   };
 
-  const handleUserRegister = async (data: IRegister) => {
-    const { userName, password, passwordConfirm } = data;
-    SuperConsole({ userName, password, passwordConfirm });
+  const handleUserRegister = async (userData: IRegister) => {
+    try {
+      const { loginUser, password } = userData;
+      const { statusCode, data } = await authService.register({ loginUser, password });
+      switch (statusCode) {
+        case HttpStatusCode.ok:
+          return true;
+        case HttpStatusCode.notModified:
+          Toast.show(message, toastConfig.error);
+          return false;
+        case HttpStatusCode.unauthorized:
+          Toast.show(message, toastConfig.alert);
+          return false;
+        case HttpStatusCode.internalServerError:
+          Toast.show(message, toastConfig.error);
+          return false;
+        default:
+          return false;
+      }
+    } catch (error) {
+      Toast.show(message, toastConfig.error);
+    }
   };
 
   return { handleLogin, handleUserRegister };

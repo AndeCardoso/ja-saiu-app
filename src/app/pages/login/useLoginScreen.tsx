@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Navigators, SignedInScreens, SignedOffScreens } from '@routes/screens';
 
 export interface FormInputs {
-  userName: string;
+  loginUser: string;
   password: string;
 }
 
@@ -15,7 +15,7 @@ export const useLoginScreen = () => {
   const [showModalState, setShowModalState] = useState(false);
   const { control, handleSubmit, getValues } = useForm<FormInputs>({
     defaultValues: {
-      userName: '',
+      loginUser: '',
       password: '',
     },
   });
@@ -29,8 +29,8 @@ export const useLoginScreen = () => {
   };
 
   const onSubmit = async () => {
-    const { userName, password } = getValues();
-    const authentication = await handleLogin({ userName, password });
+    const { loginUser, password } = getValues();
+    const authentication = await handleLogin({ loginUser, password });
     if (authentication) {
       replace(Navigators.SIGNED_IN_NAVIGATOR, { screen: SignedInScreens.HOME });
     }
