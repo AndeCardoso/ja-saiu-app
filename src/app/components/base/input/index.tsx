@@ -30,6 +30,7 @@ export const Input = ({ name, control, label, placeholder, type = 'text', ...res
         const handleClean = () => {
           onChange((value = ''));
         };
+
         return (
           <>
             {type === 'password' ? (
@@ -69,6 +70,7 @@ export const Input = ({ name, control, label, placeholder, type = 'text', ...res
                 outlineColor={theme.colors.primary}
                 placeholderTextColor={theme.colors.secondary}
                 right={
+                  value &&
                   value.length > 0 && (
                     <TextInput.Icon icon={'close'} iconColor={theme.colors.primary} onPress={handleClean} />
                   )
