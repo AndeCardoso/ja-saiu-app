@@ -1,13 +1,13 @@
 import { colors } from '@global/styles/colors';
 import Toast, { ToastOptions } from 'react-native-root-toast';
 
-interface IToastConfigs {
+interface IToastConfig {
   info: ToastOptions;
   alert: ToastOptions;
   error: ToastOptions;
 }
 
-export const toastConfig: IToastConfigs = {
+export const toastConfig: IToastConfig = {
   info: {
     duration: Toast.durations.SHORT,
     position: Toast.positions.TOP,
