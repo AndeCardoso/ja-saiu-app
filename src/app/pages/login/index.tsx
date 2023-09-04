@@ -7,18 +7,12 @@ import { Text } from '@components/base/text';
 import { Input } from '@components/base/input';
 import { Button } from '@components/base/button';
 import { StyledLogo } from '@components/base/logo';
+import { useAuth } from 'app/hooks/useAuth';
 
 export const LoginPage = () => {
-  const {
-    control,
-    handleSubmit,
-    handleRegister,
-    handleWithoutAuth,
-    onSubmit,
-    showModal,
-    onCloseModal,
-    showModalState,
-  } = useLoginScreen();
+  const { control, handleSubmit, handleWithoutAuth, onSubmit, showModal, onCloseModal, showModalState } =
+    useLoginScreen();
+  const { handleGoToRegister } = useAuth();
   return (
     <Container
       verticalCenter
@@ -31,7 +25,7 @@ export const LoginPage = () => {
             <StyledButton mode="text" onPress={showModal}>
               Entrar sem logar
             </StyledButton>
-            <StyledButton mode="outlined" onPress={handleRegister}>
+            <StyledButton mode="outlined" onPress={handleGoToRegister}>
               Fazer cadastro
             </StyledButton>
           </StyledRow>

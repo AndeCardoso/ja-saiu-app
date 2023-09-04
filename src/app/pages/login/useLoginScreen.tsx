@@ -41,13 +41,8 @@ export const useLoginScreen = () => {
     navigate(Navigators.SIGNED_IN_NAVIGATOR, { screen: SignedInScreens.HOME });
   };
 
-  const handleRegister = () => {
-    navigate(Navigators.SIGNED_OFF_NAVIGATOR, { screen: SignedOffScreens.REGISTER });
-  };
-
   return {
     control,
-    handleRegister,
     handleWithoutAuth,
     handleSubmit,
     onSubmit,

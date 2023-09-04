@@ -18,6 +18,10 @@ export const paperTheme = {
     BUTTON_PRIMARY: colors.PRIMARY,
     BUTTON_OUTLINE_BLUE: colors.PRIMARY,
 
+    elevation: {
+      level3: '',
+    },
+
     ...colors,
   },
 };

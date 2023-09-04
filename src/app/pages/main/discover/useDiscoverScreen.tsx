@@ -8,7 +8,6 @@ export interface FormInputs {
 }
 
 export const useDiscoverScreen = () => {
-  const { navigate, replace } = useNavigation<any>();
   const { control, handleSubmit, getValues } = useForm<FormInputs>({
     defaultValues: {
       search: '',

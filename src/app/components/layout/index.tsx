@@ -3,6 +3,7 @@ import { Container, FooterContainer, ScrollContainer, ScrollViewContainer, Stati
 import { useTheme } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { Header } from './header';
+import { FabGroup } from '@components/fabGroup';
 
 interface ILayoutProps {
   verticalCenter?: boolean;
@@ -12,6 +13,7 @@ interface ILayoutProps {
   footer?: ReactElement;
   showGoBackButton?: boolean;
   hasInputSearchHeader?: boolean;
+  fabGroup?: any;
 }
 
 export const Layout = ({
@@ -22,6 +24,7 @@ export const Layout = ({
   footer,
   showGoBackButton,
   hasInputSearchHeader,
+  fabGroup,
 }: ILayoutProps) => {
   const { canGoBack, goBack } = useNavigation();
   const theme = useTheme();
@@ -48,6 +51,7 @@ export const Layout = ({
         )}
 
         {footer && <FooterContainer theme={theme}>{footer}</FooterContainer>}
+        {fabGroup && <FabGroup actionList={fabGroup} iconMaster="account" />}
       </Container>
     </ScrollViewContainer>
   );
