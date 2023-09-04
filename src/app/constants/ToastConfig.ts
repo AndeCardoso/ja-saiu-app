@@ -1,5 +1,8 @@
 import { colors } from '@global/styles/colors';
+import { Platform } from 'react-native';
 import Toast, { ToastOptions } from 'react-native-root-toast';
+
+const isIos = Platform.OS === 'ios';
 
 interface IToastConfig {
   info: ToastOptions;
@@ -11,6 +14,7 @@ export const toastConfig: IToastConfig = {
   info: {
     duration: Toast.durations.SHORT,
     position: Toast.positions.TOP,
+    containerStyle: { marginTop: isIos ? 36 : 0 },
     shadow: true,
     animation: true,
     hideOnPress: true,
@@ -24,6 +28,7 @@ export const toastConfig: IToastConfig = {
   alert: {
     duration: Toast.durations.SHORT,
     position: Toast.positions.TOP,
+    containerStyle: { marginTop: isIos ? 36 : 0 },
     shadow: true,
     animation: true,
     hideOnPress: true,
@@ -37,6 +42,7 @@ export const toastConfig: IToastConfig = {
   error: {
     duration: Toast.durations.SHORT,
     position: Toast.positions.TOP,
+    containerStyle: { marginTop: isIos ? 36 : 0 },
     shadow: true,
     animation: true,
     hideOnPress: true,
