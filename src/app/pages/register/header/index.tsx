@@ -2,11 +2,11 @@ import React from 'react';
 import { Container } from './styles';
 import { Text } from '@components/base/text';
 
-export const HeaderHome = () => {
+export const HeaderRegister = () => {
   return (
     <Container>
       <Text fontSize={24} bold={700} contrast>
-        Inicio
+        Cadastro
       </Text>
     </Container>
   );

@@ -9,16 +9,7 @@ export default class AuthService {
       url: 'sign-in',
       body: { loginUser, password },
     });
-
+    console.log(response);
     return response;
-  }
-
-  public async register({ loginUser, password }: AuthenticateRequestDTO) {
-    const httpClient = new AxiosHttpClient();
-    return await httpClient.request({
-      method: 'post',
-      url: 'user',
-      body: { login: loginUser, password },
-    });
   }
 }

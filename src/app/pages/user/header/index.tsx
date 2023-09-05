@@ -2,11 +2,11 @@ import React from 'react';
 import { Container } from './styles';
 import { Text } from '@components/base/text';
 
-export const HeaderHome = () => {
+export const HeaderEdit = () => {
   return (
     <Container>
       <Text fontSize={24} bold={700} contrast>
-        Inicio
+        Editar usuário
       </Text>
     </Container>
   );

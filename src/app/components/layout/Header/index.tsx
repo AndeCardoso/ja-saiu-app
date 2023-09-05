@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { HeaderContainer } from './styles';
+import { HeaderContainer, StyledIconButton } from './styles';
 import { IconButton, useTheme } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -15,9 +15,9 @@ export const Header = ({ children, goBack, showGoBackButton, hasInputSearch }: I
   const { top } = useSafeAreaInsets();
 
   return (
-    <HeaderContainer theme={theme} hasInputSearch={hasInputSearch} topInsect={top}>
+    <HeaderContainer theme={theme} hasInputSearch={hasInputSearch} hasGoBackButton={showGoBackButton} topInsect={top}>
       {showGoBackButton && (
-        <IconButton icon={'chevron-left'} size={30} iconColor={theme.colors.background} onPress={goBack} />
+        <StyledIconButton icon={'chevron-left'} size={30} iconColor={theme.colors.background} onPress={goBack} />
       )}
       {children}
     </HeaderContainer>

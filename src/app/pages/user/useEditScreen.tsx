@@ -1,11 +1,13 @@
+import { ToastAndroid } from 'react-native';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { useAuth } from 'app/hooks/useAuth';
 import { useNavigation } from '@react-navigation/native';
-import { IRegisterFormInputs, registerDataSchema, registerFormDefaultValues } from './registerForm';
+import { registerDataSchema } from './editForm';
+import { IRegisterFormInputs, registerFormDefaultValues } from '@pages/register/registerForm';
 
-export const useRegisterScreen = () => {
+export const useEditScreen = () => {
   const { handleUserRegister } = useAuth();
   const { goBack, canGoBack } = useNavigation<any>();
   const { control, handleSubmit, getValues } = useForm<IRegisterFormInputs>({

@@ -4,7 +4,7 @@ export interface IAuth {
 }
 
 export interface IRegister {
-  loginUser: string;
+  login: string;
   password: string;
   passwordConfirm: string;
 }

@@ -46,7 +46,7 @@ export class AxiosHttpClient implements IHttpClient {
   private baseUrl: string;
 
   constructor(baseUrl?: string) {
-    this.baseUrl = `${process.env.EXPO_PUBLIC_API_URL}`;
+    this.baseUrl = `http://192.168.1.24/api/`;
   }
 
   async request(data: IHttpRequest): Promise<HttpResponse> {

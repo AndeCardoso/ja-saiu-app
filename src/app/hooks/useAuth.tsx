@@ -2,14 +2,16 @@ import { IActionItemFAB } from '@components/fabGroup';
 import { IAuth, IRegister } from '@model/auth/login';
 import { HttpStatusCode } from '@model/http/httpClient';
 import { useNavigation } from '@react-navigation/native';
-import { Navigators, SignedOffScreens } from '@routes/screens';
+import { Navigators, SignedInScreens, SignedOffScreens } from '@routes/screens';
 import AuthService from '@services/auth';
+import UserService from '@services/user';
 import { toastConfig } from 'app/constants/ToastConfig';
 import { useTheme } from 'react-native-paper';
 import Toast from 'react-native-root-toast';
 
 export const useAuth = () => {
   const authService = new AuthService();
+  const userService = new UserService();
   const { navigate } = useNavigation<any>();
   const theme = useTheme();
   const message = 'Erro inesperado';
@@ -50,8 +52,32 @@ export const useAuth = () => {
 
   const handleUserRegister = async (userData: IRegister) => {
     try {
-      const { loginUser, password } = userData;
-      const { statusCode, data } = await authService.register({ loginUser, password });
+      const { login, password } = userData;
+      const { statusCode, data } = await userService.register({ login, password });
+      switch (statusCode) {
+        case HttpStatusCode.ok:
+          return true;
+        case HttpStatusCode.notModified:
+          Toast.show(message, toastConfig.error);
+          return false;
+        case HttpStatusCode.unauthorized:
+          Toast.show(message, toastConfig.alert);
+          return false;
+        case HttpStatusCode.internalServerError:
+          Toast.show(message, toastConfig.error);
+          return false;
+        default:
+          return false;
+      }
+    } catch (error) {
+      Toast.show(message, toastConfig.error);
+    }
+  };
+
+  const handleUserEdit = async (userData: IRegister) => {
+    try {
+      const { login, password } = userData;
+      const { statusCode, data } = await userService.edit({ login, password });
       switch (statusCode) {
         case HttpStatusCode.ok:
           return true;
@@ -73,7 +99,11 @@ export const useAuth = () => {
   };
 
   const handleGoToRegister = () => {
-    navigate(Navigators.SIGNED_OFF_NAVIGATOR, { screen: SignedOffScreens.REGISTER });
+    navigate(SignedOffScreens.REGISTER);
+  };
+
+  const handleGoToEdit = () => {
+    navigate(SignedInScreens.EDIT);
   };
 
   const userActionListStyle = {
@@ -86,7 +116,7 @@ export const useAuth = () => {
     {
       icon: 'account-edit',
       label: 'Cadastro',
-      onPress: handleUserRegister,
+      onPress: handleGoToEdit,
       ...userActionListStyle,
     },
     {
@@ -97,5 +127,13 @@ export const useAuth = () => {
     },
   ];
 
-  return { handleLogin, handleLogout, handleGoToRegister, handleUserRegister, userActionList };
+  return {
+    handleLogin,
+    handleLogout,
+    handleGoToRegister,
+    handleGoToEdit,
+    handleUserRegister,
+    handleUserEdit,
+    userActionList,
+  };
 };

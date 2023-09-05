@@ -1,29 +1,29 @@
 import React from 'react';
 import { Container, InputsWrapper, StyledButton, StyledRow } from './styles';
 
-import { useRegisterScreen } from './useRegisterScreen';
-import { RegisterForm } from './registerForm';
-import { HeaderRegister } from './header';
+import { useEditScreen } from './useEditScreen';
+import { EditForm } from './editForm';
+import { HeaderEdit } from './header';
 
-export const RegisterPage = () => {
-  const { control, handleGoBack, handleSubmit, onSubmit } = useRegisterScreen();
+export const EditPage = () => {
+  const { control, handleGoBack, handleSubmit, onSubmit } = useEditScreen();
   return (
     <Container
       showGoBackButton
-      header={<HeaderRegister />}
+      header={<HeaderEdit />}
       footer={
         <StyledRow>
           <StyledButton mode="outlined" onPress={handleGoBack}>
             Voltar
           </StyledButton>
           <StyledButton mode="contained" onPress={handleSubmit(onSubmit)}>
-            Cadastrar
+            Salvar
           </StyledButton>
         </StyledRow>
       }
     >
       <InputsWrapper>
-        <RegisterForm control={control} />
+        <EditForm control={control} />
       </InputsWrapper>
     </Container>
   );

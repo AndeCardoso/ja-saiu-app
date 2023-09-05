@@ -14,7 +14,7 @@ export const AppRoutes = () => {
   const { colors } = useTheme();
   return (
     <>
-      <StatusBar backgroundColor={colors.primary} barStyle={isIOS ? 'light-content' : 'dark-content'} />
+      <StatusBar backgroundColor={colors.primary} barStyle={'dark-content'} />
       <Stack.Navigator
         screenOptions={{
           headerShown: false,

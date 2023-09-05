@@ -1,7 +1,8 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Navigators } from './screens';
+import { Navigators, SignedInScreens } from './screens';
 import { TabNavigator } from '@pages/main/tabNavigator';
+import { EditPage } from '@pages/user';
 
 const SignedIn = createStackNavigator();
 
@@ -16,6 +17,13 @@ export const SignedInNavigator = () => {
       >
         {(props) => <TabNavigator {...props} />}
       </SignedIn.Screen>
+      <SignedIn.Screen
+        name={SignedInScreens.EDIT}
+        component={EditPage}
+        options={{
+          headerShown: false,
+        }}
+      />
     </SignedIn.Navigator>
   );
 };
