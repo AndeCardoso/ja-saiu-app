@@ -1,8 +1,7 @@
 import { Row } from '@components/base/row';
 import { Layout } from '@components/layout';
-import { Image, View } from 'react-native';
+import { View } from 'react-native';
 import { Button } from 'react-native-paper';
-import { ThemeProp } from 'react-native-paper/lib/typescript/src/types';
 import styled from 'styled-components/native';
 
 export const Container = styled(Layout)``;
