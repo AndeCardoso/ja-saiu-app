@@ -1,21 +1,22 @@
-import { ReactNode } from 'react';
 import { StyledText } from './styles';
 import { useTheme } from 'react-native-paper';
+import { textLimiter } from '@utils/textLimiter';
 
 interface ITextProps {
-  children: ReactNode;
+  children: string;
   fontSize?: number;
   bold?: number;
   contrast?: boolean;
   uppercase?: boolean;
+  textLimit?: number;
 }
 
-export const Text = ({ children, fontSize, bold, contrast, uppercase, ...rest }: ITextProps) => {
+export const Text = ({ children, fontSize, bold, contrast, uppercase, textLimit, ...rest }: ITextProps) => {
   const theme = useTheme();
   const text = uppercase ? children?.toString().toUpperCase() : children;
   return (
     <StyledText theme={theme} fontSize={fontSize} bold={bold} contrast={contrast} {...rest}>
-      {text}
+      {textLimit ? textLimiter(text, textLimit) : text}
     </StyledText>
   );
 };
