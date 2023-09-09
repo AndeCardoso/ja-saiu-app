@@ -51,10 +51,9 @@ export const FabGroup = ({ iconMaster, actionList }: ILayoutProps) => {
         open={open}
         visible={isVisibleState}
         icon={open ? 'close' : iconMaster}
-        style={{ marginBottom: isIos ? 32 : 52 }}
-        fabStyle={{ borderRadius: 80, backgroundColor: theme.colors.primary }}
+        fabStyle={{ borderRadius: 100, backgroundColor: theme.colors.primary, marginBottom: isIos ? 48 : 72 }}
         color={theme.colors.secondary}
-        backdropColor="transparent"
+        backdropColor={theme.colors.backdrop}
         actions={actionList}
         onStateChange={onStateChange}
       />
