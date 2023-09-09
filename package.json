@@ -22,7 +22,7 @@
     "react-hook-form": "^7.43.9",
     "react-native": "0.71.8",
     "react-native-gesture-handler": "^2.9.0",
-    "react-native-paper": "^5.5.1",
+    "react-native-paper": "^5.10.4",
     "react-native-root-toast": "^3.4.1",
     "react-native-safe-area-context": "^4.5.0",
     "react-native-vector-icons": "^9.2.0",
@@ -45,3 +45,4 @@
   },
   "private": true
 }
+
