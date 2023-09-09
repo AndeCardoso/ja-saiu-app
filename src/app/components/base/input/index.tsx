@@ -10,7 +10,7 @@ interface IControlledInputProps {
   label?: string;
   placeholder?: string;
   type?: TInputType;
-  onChangeSearch: () => void;
+  onSearch: () => void;
 }
 
 type TInputType = 'text' | 'password' | 'search';
@@ -21,7 +21,7 @@ export const Input = ({
   label,
   placeholder,
   type = 'text',
-  onChangeSearch,
+  onSearch,
   ...rest
 }: IControlledInputProps) => {
   const theme = useTheme();
@@ -90,12 +90,12 @@ export const Input = ({
           label={<Text>{label}</Text>}
           mode="outlined"
           onChangeText={onChange}
-          onSubmitEditing={onChangeSearch}
+          onSubmitEditing={onSearch}
           placeholder={placeholder}
           textColor={theme.colors.primary}
           outlineColor={theme.colors.primary}
           placeholderTextColor={theme.colors.secondary}
-          right={<TextInput.Icon icon={'text-search'} iconColor={theme.colors.primary} onPress={onChangeSearch} />}
+          right={<TextInput.Icon icon={'text-search'} iconColor={theme.colors.primary} onPress={onSearch} />}
           returnKeyType="search"
           {...rest}
         />

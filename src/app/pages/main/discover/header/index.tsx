@@ -7,15 +7,16 @@ import { FormInputs } from '../useDiscoverScreen';
 
 interface IHeaderDiscoverProps {
   control: Control<FormInputs>;
+  onSearch: () => void;
 }
 
-export const HeaderDiscover = ({ control }: IHeaderDiscoverProps) => {
+export const HeaderDiscover = ({ control, onSearch }: IHeaderDiscoverProps) => {
   return (
     <Container>
       <Text fontSize={24} bold={700} contrast>
         Explorar
       </Text>
-      <Input control={control} name="search" placeholder="Buscar" type="text" />
+      <Input control={control} name="search" placeholder="Buscar" type="search" onSearch={onSearch} />
     </Container>
   );
 };

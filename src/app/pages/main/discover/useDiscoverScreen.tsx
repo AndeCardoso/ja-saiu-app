@@ -1,14 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigation } from '@react-navigation/native';
-import { Navigators, SignedInScreens, SignedOffScreens } from '@routes/screens';
+import { mockAnimeList } from 'app/mocks/animeList';
 
 export interface FormInputs {
   search: string;
 }
 
 export const useDiscoverScreen = () => {
-  const { control, handleSubmit, getValues } = useForm<FormInputs>({
+  const [listState, setListState] = useState(mockAnimeList);
+  const { control, handleSubmit, getValues, watch } = useForm<FormInputs>({
     defaultValues: {
       search: '',
     },
@@ -17,13 +17,20 @@ export const useDiscoverScreen = () => {
   const onSearch = async () => {
     const { search } = getValues();
     if (search) {
-      console.log(search);
+      setListState(mockAnimeList.filter((item) => item.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())));
+    } else {
+      setListState(mockAnimeList);
     }
   };
+
+  useEffect(() => {
+    onSearch();
+  }, [watch('search')]);
 
   return {
     control,
     onSearch,
     handleSubmit,
+    discoverList: listState,
   };
 };
