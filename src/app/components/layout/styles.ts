@@ -1,5 +1,5 @@
 import { Theme } from '@react-navigation/native';
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 
 export const ScrollViewContainer = styled.KeyboardAvoidingView`
   flex: 1;
@@ -16,12 +16,16 @@ export const ScrollContainer = styled.ScrollView<{ theme: Theme; verticalCenter?
   padding: 16px;
 `;
 
-export const StaticContainer = styled.View<{ theme: Theme; verticalCenter?: boolean }>`
+export const StaticContainer = styled.View<{ theme: Theme; verticalCenter?: boolean; isFlatList: boolean }>`
   flex: 1;
-  align-items: center;
   justify-content: ${({ verticalCenter }) => (verticalCenter ? 'center' : 'flex-start')};
   background-color: ${({ theme }) => theme.colors.background};
-  padding: 16px;
+  padding: ${({ isFlatList }) => (isFlatList ? 0 : 16)}px;
+  ${({ isFlatList }) =>
+    !isFlatList &&
+    css`
+      align-items: center;
+    `}
 `;
 
 export const HeaderContainer = styled.View<{ theme: Theme }>`

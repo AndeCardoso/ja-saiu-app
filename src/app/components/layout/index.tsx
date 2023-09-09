@@ -14,6 +14,7 @@ interface ILayoutProps {
   showGoBackButton?: boolean;
   hasInputSearchHeader?: boolean;
   fabGroup?: any;
+  isFlatList?: boolean;
 }
 
 export const Layout = ({
@@ -25,6 +26,7 @@ export const Layout = ({
   showGoBackButton,
   hasInputSearchHeader,
   fabGroup,
+  isFlatList,
 }: ILayoutProps) => {
   const { canGoBack, goBack } = useNavigation();
   const theme = useTheme();
@@ -45,7 +47,7 @@ export const Layout = ({
             {children}
           </ScrollContainer>
         ) : (
-          <StaticContainer verticalCenter={verticalCenter} theme={theme}>
+          <StaticContainer verticalCenter={verticalCenter} theme={theme} isFlatList={isFlatList || false}>
             {children}
           </StaticContainer>
         )}
