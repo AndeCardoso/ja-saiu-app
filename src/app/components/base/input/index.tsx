@@ -89,13 +89,16 @@ export const Input = ({
           theme={theme}
           label={<Text>{label}</Text>}
           mode="outlined"
-          onChangeText={onChange}
+          onChangeText={(value) => {
+            onChange(value);
+            onSearch();
+          }}
           onSubmitEditing={onSearch}
           placeholder={placeholder}
           textColor={theme.colors.primary}
           outlineColor={theme.colors.primary}
           placeholderTextColor={theme.colors.secondary}
-          right={<TextInput.Icon icon={'text-search'} iconColor={theme.colors.primary} onPress={onSearch} />}
+          right={<TextInput.Icon icon={'text-search'} color={theme.colors.primary} onPress={onSearch} />}
           returnKeyType="search"
           {...rest}
         />
