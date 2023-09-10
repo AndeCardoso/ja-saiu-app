@@ -6,6 +6,7 @@ import { Navigators, SignedInScreens, SignedOffScreens } from '@routes/screens';
 import AuthService from '@services/auth';
 import UserService from '@services/user';
 import { toastConfig } from 'app/constants/ToastConfig';
+import { useTranslation } from 'react-i18next';
 import { useTheme } from 'react-native-paper';
 import Toast from 'react-native-root-toast';
 
@@ -13,6 +14,7 @@ export const useAuth = () => {
   const authService = new AuthService();
   const userService = new UserService();
   const { navigate } = useNavigation<any>();
+  const { t } = useTranslation();
   const theme = useTheme();
   const message = 'Erro inesperado';
 
@@ -115,13 +117,13 @@ export const useAuth = () => {
   const userActionList: Array<IActionItemFAB> = [
     {
       icon: 'account-edit',
-      label: 'Cadastro',
+      label: t('FAB_GROUP.HOME.EDIT'),
       onPress: handleGoToEdit,
       ...userActionListStyle,
     },
     {
       icon: 'logout',
-      label: 'Logout',
+      label: t('FAB_GROUP.HOME.LOGOUT'),
       onPress: handleLogout,
       ...userActionListStyle,
     },

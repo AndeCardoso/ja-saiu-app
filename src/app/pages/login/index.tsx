@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { ButtonsWrapper, Container, InputsWrapper, StyledButton, StyledRow } from './styles';
 
 import { useLoginScreen } from './useLoginScreen';
@@ -10,6 +11,7 @@ import { StyledLogo } from '@components/base/logo';
 import { useAuth } from 'app/hooks/useAuth';
 
 export const LoginPage = () => {
+  const { t } = useTranslation();
   const { control, handleSubmit, handleWithoutAuth, onSubmit, showModal, onCloseModal, showModalState } =
     useLoginScreen();
   const { handleGoToRegister } = useAuth();
@@ -19,14 +21,14 @@ export const LoginPage = () => {
       footer={
         <ButtonsWrapper>
           <Button mode="contained" fullWidth onPress={handleSubmit(onSubmit)}>
-            Entrar
+            {t('PAGES.LOGIN.BUTTON.ENTER')}
           </Button>
           <StyledRow>
             <StyledButton mode="text" onPress={showModal}>
-              Entrar sem logar
+              {t('PAGES.LOGIN.BUTTON.ENTER_WITHOUT_AUTH')}
             </StyledButton>
             <StyledButton mode="outlined" onPress={handleGoToRegister}>
-              Fazer cadastro
+              {t('PAGES.LOGIN.BUTTON.REGISTER')}
             </StyledButton>
           </StyledRow>
         </ButtonsWrapper>
@@ -34,23 +36,32 @@ export const LoginPage = () => {
     >
       <StyledLogo size={256} />
       <InputsWrapper>
-        <Input name="loginUser" control={control} label="Usuário" placeholder="Informe seu nome de usuário" />
-        <Input name="password" control={control} label="Senha" placeholder="Informe a senha" type="password" />
+        <Input
+          name="loginUser"
+          control={control}
+          label={t('PAGES.LOGIN.INPUT.USER')}
+          placeholder={t('PAGES.LOGIN.INPUT.USER_PLACEHOLDER')}
+        />
+        <Input
+          name="password"
+          control={control}
+          label={t('PAGES.LOGIN.INPUT.PASSWORD')}
+          placeholder={t('PAGES.LOGIN.INPUT.PASSWORD_PLACEHOLDER')}
+          type="password"
+        />
       </InputsWrapper>
 
       <Modal
         visible={showModalState}
         onClose={onCloseModal}
         firstButton={{
-          text: 'Aceito',
+          text: t('PAGES.LOGIN.MODAL_ALERT.CONFIRM_BUTTON'),
           onPress: handleWithoutAuth,
         }}
-        secondButton={{ text: 'Cancelar', onPress: onCloseModal }}
-        header={'Você tem certeza?'}
+        secondButton={{ text: t('PAGES.LOGIN.MODAL_ALERT.CANCEL_BUTTON'), onPress: onCloseModal }}
+        header={t('PAGES.LOGIN.MODAL_ALERT.HEADER')}
       >
-        <Text fontSize={16}>
-          {`Caso você decida seguir sem se identificar, todas as suas ações (favoritos, buscas, etc) serão perdidas ao encerrar o app.\n\nTambém não será possível notificar quando um novo episódio for lançado!`}
-        </Text>
+        <Text fontSize={16}>{t('PAGES.LOGIN.MODAL_ALERT.CONTENT')}</Text>
       </Modal>
     </Container>
   );

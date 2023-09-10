@@ -1,29 +1,30 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { SignedInScreens } from '@routes/screens';
 import { useTheme } from 'react-native-paper';
-import { HomeLayout } from './home';
 import { Icon } from '@components/base/icon';
-import { DiscoverLayout } from './discover';
+import { HomeLayout } from './home';
+import { DiscoverLayout } from './discovery';
 import { FavoritesLayout } from './favorites';
 import { Platform } from 'react-native';
+import i18next from 'i18next';
 
 const isIOS = Platform.OS === 'ios';
 
 export type TabParams = {
   home: undefined;
-  discover: undefined;
+  discovery: undefined;
   favorites: undefined;
 };
 
 export const TabTitles = {
-  [SignedInScreens.HOME]: 'Início',
-  [SignedInScreens.DISCOVER]: 'Explorar',
-  [SignedInScreens.FAVORITES]: 'Favoritos',
+  [SignedInScreens.HOME]: i18next.t('TAB_NAVIGATION.HOME'),
+  [SignedInScreens.DISCOVERY]: i18next.t('TAB_NAVIGATION.DISCOVERY'),
+  [SignedInScreens.FAVORITES]: i18next.t('TAB_NAVIGATION.FAVORITE'),
 };
 
 const icons = {
   [SignedInScreens.HOME]: 'home',
-  [SignedInScreens.DISCOVER]: 'compass-outline',
+  [SignedInScreens.DISCOVERY]: 'compass-outline',
   [SignedInScreens.FAVORITES]: 'star',
 };
 
@@ -49,23 +50,24 @@ export const TabNavigator = () => {
         tabBarStyle: {
           backgroundColor: theme.colors.background,
           marginBottom: isIOS ? -16 : 0,
+          borderTopColor: theme.colors.secondary,
         },
       })}
     >
       <Tab.Screen
         name={SignedInScreens.HOME}
         component={HomeLayout}
-        options={{ tabBarLabel: TabTitles.home, unmountOnBlur: true }}
+        options={{ tabBarLabel: TabTitles[SignedInScreens.HOME], unmountOnBlur: true }}
       />
       <Tab.Screen
-        name={SignedInScreens.DISCOVER}
+        name={SignedInScreens.DISCOVERY}
         component={DiscoverLayout}
-        options={{ tabBarLabel: TabTitles.discover }}
+        options={{ tabBarLabel: TabTitles[SignedInScreens.DISCOVERY] }}
       />
       <Tab.Screen
         name={SignedInScreens.FAVORITES}
         component={FavoritesLayout}
-        options={{ tabBarLabel: TabTitles.favorites }}
+        options={{ tabBarLabel: TabTitles[SignedInScreens.FAVORITES] }}
       />
     </Tab.Navigator>
   );

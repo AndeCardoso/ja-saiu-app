@@ -4,8 +4,10 @@ import { Container, InputsWrapper, StyledButton, StyledRow } from './styles';
 import { useRegisterScreen } from './useRegisterScreen';
 import { RegisterForm } from './registerForm';
 import { HeaderRegister } from './header';
+import { useTranslation } from 'react-i18next';
 
 export const RegisterPage = () => {
+  const { t } = useTranslation();
   const { control, handleGoBack, handleSubmit, onSubmit } = useRegisterScreen();
   return (
     <Container
@@ -14,10 +16,10 @@ export const RegisterPage = () => {
       footer={
         <StyledRow>
           <StyledButton mode="outlined" onPress={handleGoBack}>
-            Voltar
+            {t('PAGES.REGISTER.BUTTON.GO_BACK')}
           </StyledButton>
           <StyledButton mode="contained" onPress={handleSubmit(onSubmit)}>
-            Cadastrar
+            {t('PAGES.REGISTER.BUTTON.SAVE')}
           </StyledButton>
         </StyledRow>
       }

@@ -1,13 +1,14 @@
 import React from 'react';
 import { Container } from './styles';
 import { Text } from '@components/base/text';
-import { StyledLogo } from '@components/base/logo';
+import { useTranslation } from 'react-i18next';
 
 export const HeaderFavorites = () => {
+  const { t } = useTranslation();
   return (
     <Container>
       <Text fontSize={24} bold={700} contrast>
-        Favoritos
+        {t('TAB_NAVIGATION.FAVORITE')}
       </Text>
     </Container>
   );
