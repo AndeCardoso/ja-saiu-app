@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Container, Details, StyledImage, Wrapper } from './styles';
 import { Text } from '@components/base/text';
 import { ImageSourcePropType, TouchableOpacity } from 'react-native';
@@ -14,7 +14,7 @@ interface ICardProps {
   favorited: boolean;
 }
 
-export const Card = ({ image, title, description, episode, season, favorited }: ICardProps) => {
+const Card = ({ image, title, description, episode, season, favorited }: ICardProps) => {
   const { colors } = useTheme();
   return (
     <TouchableOpacity>
@@ -46,3 +46,5 @@ export const Card = ({ image, title, description, episode, season, favorited }: 
     </TouchableOpacity>
   );
 };
+
+export default memo(Card);

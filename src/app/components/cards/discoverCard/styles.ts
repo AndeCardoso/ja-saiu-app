@@ -12,7 +12,6 @@ interface IContainerProps {
 }
 
 export const Container = styled(Row)<IContainerProps>`
-  flex: 1;
   flex-direction: row;
   align-items: center;
   border-radius: 5px;

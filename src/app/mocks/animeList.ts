@@ -23,7 +23,7 @@ export const mockAnimeList = [
   },
   {
     id: 2,
-    title: 'One Peace',
+    title: 'One Piece',
     description:
       'Um estudante japonês encontra um caderno misterioso e descobre ter poderes para matar todas as pessoas cujos nomes forem escritos no caderno. ',
     episode: '26',
