@@ -11,7 +11,7 @@ export enum SignedOffScreens {
 
 export enum SignedInScreens {
   HOME = 'home',
-  DISCOVER = 'discover',
+  DISCOVERY = 'discovery',
   FAVORITES = 'favorites',
   EDIT = 'edit',
 }

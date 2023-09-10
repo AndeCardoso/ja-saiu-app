@@ -7,10 +7,10 @@ import { Text } from '../text';
 interface IControlledInputProps {
   control: Control<any>;
   name: string;
-  label?: string;
+  label: string;
   placeholder?: string;
   type?: TInputType;
-  onSearch: () => void;
+  onSearch?: () => void;
 }
 
 type TInputType = 'text' | 'password' | 'search';
@@ -91,7 +91,7 @@ export const Input = ({
           mode="outlined"
           onChangeText={(value) => {
             onChange(value);
-            onSearch();
+            onSearch && onSearch();
           }}
           onSubmitEditing={onSearch}
           placeholder={placeholder}
